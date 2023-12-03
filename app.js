@@ -58,9 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
 
-        // Lógica simplificada de login para fins de demonstração
+        // Lógica simplificada de login
         if (username === "cliente" && password === "senha123") {
-            window.location.href = "./Reserva.html";
         } else {
             alert("Credenciais inválidas. Tente novamente.");
         }
@@ -196,14 +195,14 @@ function submitReservation() {
     // Mostrar mensagem de alerta
     alert("Reserva efetuada com sucesso!");
 }
-// Adicione estas variáveis globais para armazenar a lista de reservas e hóspedes
+//variáveis para armazenar a lista de reservas e hóspedes
 let reservations = [];
 let guests = [];
 const reservationListContainer = document.getElementById("reservationList");
 const guestListContainer = document.getElementById("guestList");
 
 function submitReservation() {
-    // Lógica de submissão da reserva...
+    // Lógica de submissão da reserva
 
     // Obter dados da reserva
     const guestName = document.getElementById("guestName").value;
@@ -251,9 +250,9 @@ function updateReservationList() {
     reservations.forEach(reservation => {
         const reservationItem = document.createElement("div");
         reservationItem.innerHTML = `<p><strong>Hóspede:</strong> ${reservation.guestName}</p>
-                                    <p><strong>Quarto:</strong> ${reservation.roomType}</p>
+                <p><strong>Quarto:</strong> ${reservation.roomType}</p>
                 <p><strong>Check-In:</strong> ${reservation.checkInDate}</p>
-                    <p><strong>Check-Out:</strong> ${reservation.checkOutDate}</p>`;
+                <p><strong>Check-Out:</strong> ${reservation.checkOutDate}</p>`;
         reservationListContainer.appendChild(reservationItem);
     });
 }
@@ -274,3 +273,47 @@ function toggleGuestList() {
     // Mostrar ou ocultar a lista de hóspedes
     guestListContainer.style.display = guestListContainer.style.display === "none" ? "block" : "none";
 }
+function validarFormulario(){
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Validar se o nome do hóspede foi inserido antes de permitir a reserva
+    if (name === "" || email === "" || message === "") {
+        alert("Por Favor, preencha todos os campos");   
+    } else {
+        alert("Mensagem enviada com sucesso!!")
+    }
+    document.getElementById("name").value;
+    document.getElementById("email").value;
+    document.getElementById("message").value;
+}
+//PÁGINA DE SUPORTE PARA O CONTATO
+//evento de clique do mouse no botão
+  document.getElementById('buttoncontact').addEventListener('click', function() {
+    // Redireciona para a outra página HTML
+    window.location.href = './contato.html';
+  });
+  //PAGINA DE CADASTRO
+function cadastro(){
+    const nomeCompleto = document.getElementById("nomeCompleto").value;
+    const cpf = document.getElementById("cpf").value;
+    const Email = document.getElementById("Email").value;
+    const dataNascimento = document.getElementById("dataNascimento").value;
+    const endereco = document.getElementById("endereco").value;
+    const telefone = document.getElementById("telefone").value;
+    // Validar
+    if(nomeCompleto === "" || cpf === "" || Email === "" || dataNascimento === "" || endereco === "" || telefone === ""){
+        alert("Por Favor, preencha todos os campos");
+    }else {
+        alert("Cadastro realizado com sucesso")
+
+    }
+    document.getElementById('nomeCompleto').value = '';
+    document.getElementById('cpf').value = '';
+    document.getElementById('dataNascimento').value = '';
+    document.getElementById('endereco').value = '';
+    document.getElementById('telefone').value = '';
+
+}
+
